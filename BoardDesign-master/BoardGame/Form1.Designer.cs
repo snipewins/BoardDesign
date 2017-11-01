@@ -71,6 +71,7 @@ namespace BoardGame
             this.tbTileHeight = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.cbShapes = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbFormWidth = new System.Windows.Forms.TextBox();
             this.tbFormHeight = new System.Windows.Forms.TextBox();
@@ -582,6 +583,18 @@ namespace BoardGame
             this.pbBackground.TabIndex = 8;
             this.pbBackground.TabStop = false;
             this.pbBackground.Click += new System.EventHandler(this.pbBackground_Click);
+                        // 
+            // cbShapes
+            // 
+            this.cbShapes.FormattingEnabled = true;
+            this.cbShapes.Items.AddRange(new object[] {
+            "Circle",
+            "Triangle"});
+            this.cbShapes.Location = new System.Drawing.Point(5, 61);
+            this.cbShapes.Name = "cbShapes";
+            this.cbShapes.Size = new System.Drawing.Size(63, 21);
+            this.cbShapes.TabIndex = 7;
+            this.cbShapes.SelectedIndexChanged += new System.EventHandler(this.cbShapes_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -659,6 +672,7 @@ namespace BoardGame
         private System.Windows.Forms.Button btnColorBG;
         private System.Windows.Forms.PictureBox pbBackground;
         private System.Windows.Forms.Button btnDeleteTile;
+        private System.Windows.Forms.ComboBox cbShapes;
     }
 }
 
