@@ -492,6 +492,27 @@ namespace BoardGame
                 return null;
             }
         }
+        
+        
+        private void cbShapes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //reads which shape was selected
+            int selection = cbShapes.SelectedIndex;
+
+            if (selection == 0) //if selection is 'Circle'
+            {
+                drawCircle();
+            }
+            else if (selection == 1)//if selection is 'Triangle'
+            {
+                drawTriangle();
+            }
+            else
+            {
+                return;
+            }
+
+        }
 
         public void drawCircle()
          {
