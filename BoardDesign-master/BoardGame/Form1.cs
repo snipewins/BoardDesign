@@ -493,6 +493,42 @@ namespace BoardGame
             }
         }
 
+        public void drawCircle()
+         {
+             System.Drawing.Drawing2D.GraphicsPath buttonPath = new System.Drawing.Drawing2D.GraphicsPath();
+
+             //set a new rectangle to the same size as the button's ClientRectange property
+             System.Drawing.Rectangle newPanel = clickedTile.ClientRectangle;
+
+             //create a circle withing the new rectangle
+             buttonPath.AddEllipse(newPanel);
+
+             //set the buttons region property to the newly created circle region
+             clickedTile.Region = new System.Drawing.Region(buttonPath);
+             clickedTile.BackColor = backgroundTile;
+         }
+
+        public void drawTriangle()
+        {
+            // Triangle button
+            System.Drawing.Drawing2D.GraphicsPath buttonPath = new System.Drawing.Drawing2D.GraphicsPath();
+
+            //set a new rectangle to the same size as the button's ClientRectange property
+            System.Drawing.Rectangle newPanel = clickedTile.ClientRectangle;
+
+            Point[] points = {
+
+        new Point(clickedTile.Width / 2, 0),
+
+        new Point(0, clickedTile.Height),
+
+        new Point(clickedTile.Width, clickedTile.Height) };
+
+            buttonPath.AddPolygon(points);
+            clickedTile.Region = new System.Drawing.Region(buttonPath);
+            clickedTile.BackColor = backgroundTile;
+        }
+
         private void pbBackground_Click(object sender, EventArgs e)
         {
             tileClicked = false;
