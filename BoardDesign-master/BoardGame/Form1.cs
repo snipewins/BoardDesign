@@ -414,6 +414,7 @@ namespace BoardGame
                             if (c is Panel)
                             {
                                 c.BackColor = colorDialogBox.Color;
+                                c.BackgroundImage = null;
                             }
                         }
                         backgroundTile = colorDialogBox.Color;
