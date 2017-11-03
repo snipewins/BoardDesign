@@ -188,12 +188,12 @@ namespace BoardGame
             else if (direction == 3000) //right
             {
                 //x += wTile +1;
-                position.X += hTile + 1;
+                position.X += wTile + 1;
             }
             else if (direction == 9000) //left
             {
                 //x -= wTile +1;
-                position.X -= hTile + 1;
+                position.X -= wTile + 1;
             }
         }
 
@@ -288,6 +288,16 @@ namespace BoardGame
 
         }
 
+        private void btnDelete_Click(object sender,EventArgs e)
+        {
+            Controls.Remove(clickedTile);
+            clickedTile.Dispose();
+
+            foreach(Panel p in ctrlClicked)
+            {
+                Controls.Remove(p);
+                p.Dispose();
+           
         
         private void btnDeleteTile_Click(object sender, EventArgs e)
         { //delete a tile
