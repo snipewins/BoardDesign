@@ -562,7 +562,7 @@ namespace BoardGame
             // btnDown
             // 
             this.btnDown.BackColor = System.Drawing.Color.Transparent;
-            this.btnDown.BackgroundImage = global::BoardGame.Properties.Resources.Down;
+            //this.btnDown.BackgroundImage = global::BoardGame.Properties.Resources.Down;
             this.btnDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDown.Location = new System.Drawing.Point(28, 57);
             this.btnDown.Name = "btnDown";
@@ -574,7 +574,7 @@ namespace BoardGame
             // btnPlace
             // 
             this.btnPlace.BackColor = System.Drawing.Color.Transparent;
-            this.btnPlace.BackgroundImage = global::BoardGame.Properties.Resources.Place;
+            //this.btnPlace.BackgroundImage = global::BoardGame.Properties.Resources.Place;
             this.btnPlace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPlace.Location = new System.Drawing.Point(28, 34);
             this.btnPlace.Name = "btnPlace";
@@ -586,7 +586,7 @@ namespace BoardGame
             // btnRight
             // 
             this.btnRight.BackColor = System.Drawing.Color.Transparent;
-            this.btnRight.BackgroundImage = global::BoardGame.Properties.Resources.Right;
+            //this.btnRight.BackgroundImage = global::BoardGame.Properties.Resources.Right;
             this.btnRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRight.Location = new System.Drawing.Point(51, 34);
             this.btnRight.Name = "btnRight";
@@ -598,7 +598,7 @@ namespace BoardGame
             // btnLeft
             // 
             this.btnLeft.BackColor = System.Drawing.Color.Transparent;
-            this.btnLeft.BackgroundImage = global::BoardGame.Properties.Resources.Left;
+           // this.btnLeft.BackgroundImage = global::BoardGame.Properties.Resources.Left;
             this.btnLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLeft.Location = new System.Drawing.Point(1, 34);
             this.btnLeft.Name = "btnLeft";
@@ -610,7 +610,7 @@ namespace BoardGame
             // btnUp
             // 
             this.btnUp.BackColor = System.Drawing.Color.Transparent;
-            this.btnUp.BackgroundImage = global::BoardGame.Properties.Resources.Up;
+            //this.btnUp.BackgroundImage = global::BoardGame.Properties.Resources.Up;
             this.btnUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnUp.Location = new System.Drawing.Point(28, 7);
             this.btnUp.Name = "btnUp";
