@@ -386,6 +386,7 @@ namespace BoardGame
                 if (btn == btnColorBG)  //if the background color button has been clicked
                 {
                     this.BackColor = colorDialogBox.Color;   //changes color of background
+                    pbBackground.BackgroundImage = null;
                 }
                 else if (btn == btnColorTile)   //if the tile color button has been clicked
                 {
