@@ -28,36 +28,27 @@ namespace BoardGame
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblHbg = new System.Windows.Forms.Label();
+            this.lblWbg = new System.Windows.Forms.Label();
             this.tbHeight = new System.Windows.Forms.TextBox();
             this.tbWidth = new System.Windows.Forms.TextBox();
-            this.gbBG = new System.Windows.Forms.GroupBox();
-            this.btnDeleteTile = new System.Windows.Forms.Button();
             this.btnColorBG = new System.Windows.Forms.Button();
+            this.cbAllTiles = new System.Windows.Forms.CheckBox();
             this.btnImageBG = new System.Windows.Forms.Button();
-            this.gbToolbox = new System.Windows.Forms.GroupBox();
-            this.gbArrows = new System.Windows.Forms.GroupBox();
-            this.btnDown = new System.Windows.Forms.Button();
-            this.btnPlace = new System.Windows.Forms.Button();
-            this.btnRight = new System.Windows.Forms.Button();
-            this.btnLeft = new System.Windows.Forms.Button();
-            this.btnUp = new System.Windows.Forms.Button();
-            this.gbPawns = new System.Windows.Forms.GroupBox();
             this.btnImagePawn = new System.Windows.Forms.Button();
             this.btnColorPawn = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.gbTiles = new System.Windows.Forms.GroupBox();
-            this.cbAllTiles = new System.Windows.Forms.CheckBox();
+            this.tbPieceW = new System.Windows.Forms.TextBox();
+            this.tbPieceH = new System.Windows.Forms.TextBox();
+            this.lblWp = new System.Windows.Forms.Label();
+            this.lblHp = new System.Windows.Forms.Label();
+            this.cbShapes = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnImageTile = new System.Windows.Forms.Button();
             this.btnColorTile = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tbTileW = new System.Windows.Forms.TextBox();
+            this.tbTileH = new System.Windows.Forms.TextBox();
+            this.lblWt = new System.Windows.Forms.Label();
+            this.lblHt = new System.Windows.Forms.Label();
             this.gbInitialInfo = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
@@ -71,83 +62,69 @@ namespace BoardGame
             this.tbTileHeight = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.cbShapes = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbFormWidth = new System.Windows.Forms.TextBox();
             this.tbFormHeight = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pbBackground = new System.Windows.Forms.PictureBox();
-            this.gbBG.SuspendLayout();
-            this.gbToolbox.SuspendLayout();
-            this.gbArrows.SuspendLayout();
-            this.gbPawns.SuspendLayout();
-            this.gbTiles.SuspendLayout();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.gbToolbox = new System.Windows.Forms.GroupBox();
+            this.gbArrows = new System.Windows.Forms.GroupBox();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.btnPlace = new System.Windows.Forms.Button();
+            this.btnRight = new System.Windows.Forms.Button();
+            this.btnLeft = new System.Windows.Forms.Button();
+            this.btnUp = new System.Windows.Forms.Button();
             this.gbInitialInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.gbToolbox.SuspendLayout();
+            this.gbArrows.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblHbg
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Height";
+            this.lblHbg.AutoSize = true;
+            this.lblHbg.Location = new System.Drawing.Point(9, 15);
+            this.lblHbg.Name = "lblHbg";
+            this.lblHbg.Size = new System.Drawing.Size(38, 13);
+            this.lblHbg.TabIndex = 0;
+            this.lblHbg.Text = "Height";
             // 
-            // label2
+            // lblWbg
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Width";
+            this.lblWbg.AutoSize = true;
+            this.lblWbg.Location = new System.Drawing.Point(9, 42);
+            this.lblWbg.Name = "lblWbg";
+            this.lblWbg.Size = new System.Drawing.Size(35, 13);
+            this.lblWbg.TabIndex = 1;
+            this.lblWbg.Text = "Width";
             // 
             // tbHeight
             // 
-            this.tbHeight.Location = new System.Drawing.Point(38, 9);
+            this.tbHeight.Location = new System.Drawing.Point(51, 13);
             this.tbHeight.Name = "tbHeight";
             this.tbHeight.Size = new System.Drawing.Size(26, 20);
             this.tbHeight.TabIndex = 2;
             // 
             // tbWidth
             // 
-            this.tbWidth.Location = new System.Drawing.Point(38, 36);
+            this.tbWidth.Location = new System.Drawing.Point(51, 39);
             this.tbWidth.Name = "tbWidth";
             this.tbWidth.Size = new System.Drawing.Size(26, 20);
             this.tbWidth.TabIndex = 3;
             // 
-            // gbBG
-            // 
-            this.gbBG.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gbBG.Controls.Add(this.btnColorBG);
-            this.gbBG.Controls.Add(this.btnImageBG);
-            this.gbBG.Controls.Add(this.tbWidth);
-            this.gbBG.Controls.Add(this.tbHeight);
-            this.gbBG.Controls.Add(this.label2);
-            this.gbBG.Controls.Add(this.label1);
-            this.gbBG.Location = new System.Drawing.Point(1, 0);
-            this.gbBG.Name = "gbBG";
-            this.gbBG.Padding = new System.Windows.Forms.Padding(0);
-            this.gbBG.Size = new System.Drawing.Size(124, 88);
-            this.gbBG.TabIndex = 5;
-            this.gbBG.TabStop = false;
-            // 
-            // btnDeleteTile
-            // 
-            this.btnDeleteTile.Location = new System.Drawing.Point(59, 61);
-            this.btnDeleteTile.Name = "btnDeleteTile";
-            this.btnDeleteTile.Size = new System.Drawing.Size(58, 23);
-            this.btnDeleteTile.TabIndex = 7;
-            this.btnDeleteTile.Text = "Delete";
-            this.btnDeleteTile.UseVisualStyleBackColor = true;
-            this.btnDeleteTile.Click += new System.EventHandler(this.btnDeleteTile_Click);
-            // 
             // btnColorBG
             // 
-            this.btnColorBG.Location = new System.Drawing.Point(70, 10);
+            this.btnColorBG.Location = new System.Drawing.Point(98, 10);
             this.btnColorBG.Name = "btnColorBG";
             this.btnColorBG.Size = new System.Drawing.Size(44, 23);
             this.btnColorBG.TabIndex = 6;
@@ -155,9 +132,19 @@ namespace BoardGame
             this.btnColorBG.UseVisualStyleBackColor = true;
             this.btnColorBG.Click += new System.EventHandler(this.btnColorDialog_Click);
             // 
+            // cbAllTiles
+            // 
+            this.cbAllTiles.AutoSize = true;
+            this.cbAllTiles.Location = new System.Drawing.Point(280, 42);
+            this.cbAllTiles.Name = "cbAllTiles";
+            this.cbAllTiles.Size = new System.Drawing.Size(62, 17);
+            this.cbAllTiles.TabIndex = 6;
+            this.cbAllTiles.Text = "All Tiles";
+            this.cbAllTiles.UseVisualStyleBackColor = true;
+            // 
             // btnImageBG
             // 
-            this.btnImageBG.Location = new System.Drawing.Point(70, 35);
+            this.btnImageBG.Location = new System.Drawing.Point(98, 37);
             this.btnImageBG.Name = "btnImageBG";
             this.btnImageBG.Size = new System.Drawing.Size(44, 23);
             this.btnImageBG.TabIndex = 5;
@@ -165,117 +152,9 @@ namespace BoardGame
             this.btnImageBG.UseVisualStyleBackColor = true;
             this.btnImageBG.Click += new System.EventHandler(this.btnImage_Click);
             // 
-            // gbToolbox
-            // 
-            this.gbToolbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbToolbox.BackColor = System.Drawing.SystemColors.Control;
-            this.gbToolbox.Controls.Add(this.gbArrows);
-            this.gbToolbox.Controls.Add(this.gbPawns);
-            this.gbToolbox.Controls.Add(this.gbTiles);
-            this.gbToolbox.Controls.Add(this.gbBG);
-            this.gbToolbox.Enabled = false;
-            this.gbToolbox.Location = new System.Drawing.Point(0, 0);
-            this.gbToolbox.Name = "gbToolbox";
-            this.gbToolbox.Size = new System.Drawing.Size(457, 88);
-            this.gbToolbox.TabIndex = 6;
-            this.gbToolbox.TabStop = false;
-            // 
-            // gbArrows
-            // 
-            this.gbArrows.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gbArrows.Controls.Add(this.btnDown);
-            this.gbArrows.Controls.Add(this.btnPlace);
-            this.gbArrows.Controls.Add(this.btnRight);
-            this.gbArrows.Controls.Add(this.btnLeft);
-            this.gbArrows.Controls.Add(this.btnUp);
-            this.gbArrows.Location = new System.Drawing.Point(373, 0);
-            this.gbArrows.Name = "gbArrows";
-            this.gbArrows.Padding = new System.Windows.Forms.Padding(0);
-            this.gbArrows.Size = new System.Drawing.Size(80, 88);
-            this.gbArrows.TabIndex = 7;
-            this.gbArrows.TabStop = false;
-            // 
-            // btnDown
-            // 
-            this.btnDown.BackColor = System.Drawing.Color.Transparent;
-//            this.btnDown.BackgroundImage = global::BoardGame.Properties.Resources.Down;
-            this.btnDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDown.Location = new System.Drawing.Point(28, 57);
-            this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(24, 28);
-            this.btnDown.TabIndex = 13;
-            this.btnDown.UseVisualStyleBackColor = false;
-            this.btnDown.Click += new System.EventHandler(this.btnArrows_Click);
-            // 
-            // btnPlace
-            // 
-            this.btnPlace.BackColor = System.Drawing.Color.Transparent;
-//          this.btnPlace.BackgroundImage = global::BoardGame.Properties.Resources.Place;
-            this.btnPlace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPlace.Location = new System.Drawing.Point(28, 34);
-            this.btnPlace.Name = "btnPlace";
-            this.btnPlace.Size = new System.Drawing.Size(24, 24);
-            this.btnPlace.TabIndex = 11;
-            this.btnPlace.UseVisualStyleBackColor = false;
-            this.btnPlace.Click += new System.EventHandler(this.btnPlace_Click);
-            // 
-            // btnRight
-            // 
-            this.btnRight.BackColor = System.Drawing.Color.Transparent;
-//            this.btnRight.BackgroundImage = global::BoardGame.Properties.Resources.Right;
-            this.btnRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRight.Location = new System.Drawing.Point(51, 34);
-            this.btnRight.Name = "btnRight";
-            this.btnRight.Size = new System.Drawing.Size(28, 24);
-            this.btnRight.TabIndex = 12;
-            this.btnRight.UseVisualStyleBackColor = false;
-            this.btnRight.Click += new System.EventHandler(this.btnArrows_Click);
-            // 
-            // btnLeft
-            // 
-            this.btnLeft.BackColor = System.Drawing.Color.Transparent;
-//            this.btnLeft.BackgroundImage = global::BoardGame.Properties.Resources.Left;
-            this.btnLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLeft.Location = new System.Drawing.Point(1, 34);
-            this.btnLeft.Name = "btnLeft";
-            this.btnLeft.Size = new System.Drawing.Size(28, 24);
-            this.btnLeft.TabIndex = 8;
-            this.btnLeft.UseVisualStyleBackColor = false;
-            this.btnLeft.Click += new System.EventHandler(this.btnArrows_Click);
-            // 
-            // btnUp
-            // 
-            this.btnUp.BackColor = System.Drawing.Color.Transparent;
- //           this.btnUp.BackgroundImage = global::BoardGame.Properties.Resources.Up;
-            this.btnUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUp.Location = new System.Drawing.Point(28, 7);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(24, 28);
-            this.btnUp.TabIndex = 11;
-            this.btnUp.UseVisualStyleBackColor = false;
-            this.btnUp.Click += new System.EventHandler(this.btnArrows_Click);
-            // 
-            // gbPawns
-            // 
-            this.gbPawns.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gbPawns.Controls.Add(this.btnImagePawn);
-            this.gbPawns.Controls.Add(this.btnColorPawn);
-            this.gbPawns.Controls.Add(this.textBox3);
-            this.gbPawns.Controls.Add(this.textBox4);
-            this.gbPawns.Controls.Add(this.label5);
-            this.gbPawns.Controls.Add(this.label6);
-            this.gbPawns.Enabled = false;
-            this.gbPawns.Location = new System.Drawing.Point(247, 0);
-            this.gbPawns.Name = "gbPawns";
-            this.gbPawns.Padding = new System.Windows.Forms.Padding(0);
-            this.gbPawns.Size = new System.Drawing.Size(130, 88);
-            this.gbPawns.TabIndex = 7;
-            this.gbPawns.TabStop = false;
-            // 
             // btnImagePawn
             // 
-            this.btnImagePawn.Location = new System.Drawing.Point(70, 35);
+            this.btnImagePawn.Location = new System.Drawing.Point(98, 37);
             this.btnImagePawn.Name = "btnImagePawn";
             this.btnImagePawn.Size = new System.Drawing.Size(44, 23);
             this.btnImagePawn.TabIndex = 5;
@@ -285,7 +164,7 @@ namespace BoardGame
             // 
             // btnColorPawn
             // 
-            this.btnColorPawn.Location = new System.Drawing.Point(71, 9);
+            this.btnColorPawn.Location = new System.Drawing.Point(98, 10);
             this.btnColorPawn.Name = "btnColorPawn";
             this.btnColorPawn.Size = new System.Drawing.Size(44, 23);
             this.btnColorPawn.TabIndex = 4;
@@ -293,68 +172,64 @@ namespace BoardGame
             this.btnColorPawn.UseVisualStyleBackColor = true;
             this.btnColorPawn.Click += new System.EventHandler(this.btnColorDialog_Click);
             // 
-            // textBox3
+            // tbPieceW
             // 
-            this.textBox3.Location = new System.Drawing.Point(38, 36);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(26, 20);
-            this.textBox3.TabIndex = 3;
+            this.tbPieceW.Location = new System.Drawing.Point(51, 39);
+            this.tbPieceW.Name = "tbPieceW";
+            this.tbPieceW.Size = new System.Drawing.Size(26, 20);
+            this.tbPieceW.TabIndex = 3;
             // 
-            // textBox4
+            // tbPieceH
             // 
-            this.textBox4.Location = new System.Drawing.Point(38, 9);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(26, 20);
-            this.textBox4.TabIndex = 2;
+            this.tbPieceH.Location = new System.Drawing.Point(51, 13);
+            this.tbPieceH.Name = "tbPieceH";
+            this.tbPieceH.Size = new System.Drawing.Size(26, 20);
+            this.tbPieceH.TabIndex = 2;
             // 
-            // label5
+            // lblWp
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 39);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Width";
+            this.lblWp.AutoSize = true;
+            this.lblWp.Location = new System.Drawing.Point(9, 42);
+            this.lblWp.Name = "lblWp";
+            this.lblWp.Size = new System.Drawing.Size(35, 13);
+            this.lblWp.TabIndex = 1;
+            this.lblWp.Text = "Width";
             // 
-            // label6
+            // lblHp
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 12);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Height";
+            this.lblHp.AutoSize = true;
+            this.lblHp.Location = new System.Drawing.Point(9, 15);
+            this.lblHp.Name = "lblHp";
+            this.lblHp.Size = new System.Drawing.Size(38, 13);
+            this.lblHp.TabIndex = 0;
+            this.lblHp.Text = "Height";
             // 
-            // gbTiles
+            // cbShapes
             // 
-            this.gbTiles.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gbTiles.Controls.Add(this.cbAllTiles);
-            this.gbTiles.Controls.Add(this.btnImageTile);
-            this.gbTiles.Controls.Add(this.btnColorTile);
-            this.gbTiles.Controls.Add(this.textBox1);
-            this.gbTiles.Controls.Add(this.textBox2);
-            this.gbTiles.Controls.Add(this.label3);
-            this.gbTiles.Controls.Add(this.label4);
-            this.gbTiles.Location = new System.Drawing.Point(124, 0);
-            this.gbTiles.Name = "gbTiles";
-            this.gbTiles.Padding = new System.Windows.Forms.Padding(0);
-            this.gbTiles.Size = new System.Drawing.Size(124, 88);
-            this.gbTiles.TabIndex = 6;
-            this.gbTiles.TabStop = false;
+            this.cbShapes.FormattingEnabled = true;
+            this.cbShapes.Items.AddRange(new object[] {
+            "Circle",
+            "Triangle"});
+            this.cbShapes.Location = new System.Drawing.Point(159, 13);
+            this.cbShapes.Name = "cbShapes";
+            this.cbShapes.Size = new System.Drawing.Size(63, 21);
+            this.cbShapes.TabIndex = 7;
+            this.cbShapes.SelectedIndexChanged += new System.EventHandler(this.cbShapes_SelectedIndexChanged);
             // 
-            // cbAllTiles
+            // button1
             // 
-            this.cbAllTiles.AutoSize = true;
-            this.cbAllTiles.Location = new System.Drawing.Point(12, 63);
-            this.cbAllTiles.Name = "cbAllTiles";
-            this.cbAllTiles.Size = new System.Drawing.Size(62, 17);
-            this.cbAllTiles.TabIndex = 6;
-            this.cbAllTiles.Text = "All Tiles";
-            this.cbAllTiles.UseVisualStyleBackColor = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(280, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(62, 25);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Delete";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnImageTile
             // 
-            this.btnImageTile.Location = new System.Drawing.Point(70, 35);
+            this.btnImageTile.Location = new System.Drawing.Point(98, 37);
             this.btnImageTile.Name = "btnImageTile";
             this.btnImageTile.Size = new System.Drawing.Size(44, 23);
             this.btnImageTile.TabIndex = 5;
@@ -364,7 +239,7 @@ namespace BoardGame
             // 
             // btnColorTile
             // 
-            this.btnColorTile.Location = new System.Drawing.Point(70, 9);
+            this.btnColorTile.Location = new System.Drawing.Point(98, 10);
             this.btnColorTile.Name = "btnColorTile";
             this.btnColorTile.Size = new System.Drawing.Size(44, 23);
             this.btnColorTile.TabIndex = 4;
@@ -372,37 +247,37 @@ namespace BoardGame
             this.btnColorTile.UseVisualStyleBackColor = true;
             this.btnColorTile.Click += new System.EventHandler(this.btnColorDialog_Click);
             // 
-            // textBox1
+            // tbTileW
             // 
-            this.textBox1.Location = new System.Drawing.Point(38, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(26, 20);
-            this.textBox1.TabIndex = 3;
+            this.tbTileW.Location = new System.Drawing.Point(51, 39);
+            this.tbTileW.Name = "tbTileW";
+            this.tbTileW.Size = new System.Drawing.Size(26, 20);
+            this.tbTileW.TabIndex = 3;
             // 
-            // textBox2
+            // tbTileH
             // 
-            this.textBox2.Location = new System.Drawing.Point(38, 9);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(26, 20);
-            this.textBox2.TabIndex = 2;
+            this.tbTileH.Location = new System.Drawing.Point(51, 13);
+            this.tbTileH.Name = "tbTileH";
+            this.tbTileH.Size = new System.Drawing.Size(26, 20);
+            this.tbTileH.TabIndex = 2;
             // 
-            // label3
+            // lblWt
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Width";
+            this.lblWt.AutoSize = true;
+            this.lblWt.Location = new System.Drawing.Point(9, 42);
+            this.lblWt.Name = "lblWt";
+            this.lblWt.Size = new System.Drawing.Size(35, 13);
+            this.lblWt.TabIndex = 1;
+            this.lblWt.Text = "Width";
             // 
-            // label4
+            // lblHt
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Height";
+            this.lblHt.AutoSize = true;
+            this.lblHt.Location = new System.Drawing.Point(9, 15);
+            this.lblHt.Name = "lblHt";
+            this.lblHt.Size = new System.Drawing.Size(38, 13);
+            this.lblHt.TabIndex = 0;
+            this.lblHt.Text = "Height";
             // 
             // gbInitialInfo
             // 
@@ -565,7 +440,7 @@ namespace BoardGame
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 40);
+            this.label8.Location = new System.Drawing.Point(9, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 4;
@@ -583,73 +458,212 @@ namespace BoardGame
             this.pbBackground.TabIndex = 8;
             this.pbBackground.TabStop = false;
             this.pbBackground.Click += new System.EventHandler(this.pbBackground_Click);
-                        // 
-            // cbShapes
             // 
-            this.cbShapes.FormattingEnabled = true;
-            this.cbShapes.Items.AddRange(new object[] {
-            "Circle",
-            "Triangle"});
-            this.cbShapes.Location = new System.Drawing.Point(5, 61);
-            this.cbShapes.Name = "cbShapes";
-            this.cbShapes.Size = new System.Drawing.Size(63, 21);
-            this.cbShapes.TabIndex = 7;
-            this.cbShapes.SelectedIndexChanged += new System.EventHandler(this.cbShapes_SelectedIndexChanged);
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(2, 8);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(361, 92);
+            this.tabControl1.TabIndex = 9;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.btnColorBG);
+            this.tabPage1.Controls.Add(this.btnImageBG);
+            this.tabPage1.Controls.Add(this.lblHbg);
+            this.tabPage1.Controls.Add(this.tbHeight);
+            this.tabPage1.Controls.Add(this.lblWbg);
+            this.tabPage1.Controls.Add(this.tbWidth);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(353, 66);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Background";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.cbShapes);
+            this.tabPage2.Controls.Add(this.cbAllTiles);
+            this.tabPage2.Controls.Add(this.lblHt);
+            this.tabPage2.Controls.Add(this.lblWt);
+            this.tabPage2.Controls.Add(this.btnImageTile);
+            this.tabPage2.Controls.Add(this.tbTileH);
+            this.tabPage2.Controls.Add(this.btnColorTile);
+            this.tabPage2.Controls.Add(this.tbTileW);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(353, 66);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Tiles";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(228, 16);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(38, 13);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Shape";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btnImagePawn);
+            this.tabPage3.Controls.Add(this.tbPieceH);
+            this.tabPage3.Controls.Add(this.btnColorPawn);
+            this.tabPage3.Controls.Add(this.lblHp);
+            this.tabPage3.Controls.Add(this.tbPieceW);
+            this.tabPage3.Controls.Add(this.lblWp);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(353, 66);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Pieces";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // gbToolbox
+            // 
+            this.gbToolbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbToolbox.BackColor = System.Drawing.SystemColors.Control;
+            this.gbToolbox.Controls.Add(this.tabControl1);
+            this.gbToolbox.Controls.Add(this.gbArrows);
+            this.gbToolbox.Enabled = false;
+            this.gbToolbox.Location = new System.Drawing.Point(0, -7);
+            this.gbToolbox.Name = "gbToolbox";
+            this.gbToolbox.Size = new System.Drawing.Size(457, 107);
+            this.gbToolbox.TabIndex = 14;
+            this.gbToolbox.TabStop = false;
+            // 
+            // gbArrows
+            // 
+            this.gbArrows.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gbArrows.Controls.Add(this.btnDown);
+            this.gbArrows.Controls.Add(this.btnPlace);
+            this.gbArrows.Controls.Add(this.btnRight);
+            this.gbArrows.Controls.Add(this.btnLeft);
+            this.gbArrows.Controls.Add(this.btnUp);
+            this.gbArrows.Location = new System.Drawing.Point(367, 9);
+            this.gbArrows.Name = "gbArrows";
+            this.gbArrows.Padding = new System.Windows.Forms.Padding(0);
+            this.gbArrows.Size = new System.Drawing.Size(80, 88);
+            this.gbArrows.TabIndex = 7;
+            this.gbArrows.TabStop = false;
+            // 
+            // btnDown
+            // 
+            this.btnDown.BackColor = System.Drawing.Color.Transparent;
+            this.btnDown.BackgroundImage = global::BoardGame.Properties.Resources.Down;
+            this.btnDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDown.Location = new System.Drawing.Point(28, 57);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(24, 28);
+            this.btnDown.TabIndex = 13;
+            this.btnDown.UseVisualStyleBackColor = false;
+            this.btnDown.Click += new System.EventHandler(this.btnArrows_Click);
+            // 
+            // btnPlace
+            // 
+            this.btnPlace.BackColor = System.Drawing.Color.Transparent;
+            this.btnPlace.BackgroundImage = global::BoardGame.Properties.Resources.Place;
+            this.btnPlace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPlace.Location = new System.Drawing.Point(28, 34);
+            this.btnPlace.Name = "btnPlace";
+            this.btnPlace.Size = new System.Drawing.Size(24, 24);
+            this.btnPlace.TabIndex = 11;
+            this.btnPlace.UseVisualStyleBackColor = false;
+            this.btnPlace.Click += new System.EventHandler(this.btnPlace_Click);
+            // 
+            // btnRight
+            // 
+            this.btnRight.BackColor = System.Drawing.Color.Transparent;
+            this.btnRight.BackgroundImage = global::BoardGame.Properties.Resources.Right;
+            this.btnRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRight.Location = new System.Drawing.Point(51, 34);
+            this.btnRight.Name = "btnRight";
+            this.btnRight.Size = new System.Drawing.Size(28, 24);
+            this.btnRight.TabIndex = 12;
+            this.btnRight.UseVisualStyleBackColor = false;
+            this.btnRight.Click += new System.EventHandler(this.btnArrows_Click);
+            // 
+            // btnLeft
+            // 
+            this.btnLeft.BackColor = System.Drawing.Color.Transparent;
+            this.btnLeft.BackgroundImage = global::BoardGame.Properties.Resources.Left;
+            this.btnLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLeft.Location = new System.Drawing.Point(1, 34);
+            this.btnLeft.Name = "btnLeft";
+            this.btnLeft.Size = new System.Drawing.Size(28, 24);
+            this.btnLeft.TabIndex = 8;
+            this.btnLeft.UseVisualStyleBackColor = false;
+            this.btnLeft.Click += new System.EventHandler(this.btnArrows_Click);
+            // 
+            // btnUp
+            // 
+            this.btnUp.BackColor = System.Drawing.Color.Transparent;
+            this.btnUp.BackgroundImage = global::BoardGame.Properties.Resources.Up;
+            this.btnUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUp.Location = new System.Drawing.Point(28, 7);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(24, 28);
+            this.btnUp.TabIndex = 11;
+            this.btnUp.UseVisualStyleBackColor = false;
+            this.btnUp.Click += new System.EventHandler(this.btnArrows_Click);
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(457, 507);
-            this.Controls.Add(this.gbInitialInfo);
             this.Controls.Add(this.gbToolbox);
+            this.Controls.Add(this.gbInitialInfo);
             this.Controls.Add(this.pbBackground);
             this.MinimumSize = new System.Drawing.Size(473, 330);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Click += new System.EventHandler(this.Form1_Click);
-            this.gbBG.ResumeLayout(false);
-            this.gbBG.PerformLayout();
-            this.gbToolbox.ResumeLayout(false);
-            this.gbArrows.ResumeLayout(false);
-            this.gbPawns.ResumeLayout(false);
-            this.gbPawns.PerformLayout();
-            this.gbTiles.ResumeLayout(false);
-            this.gbTiles.PerformLayout();
             this.gbInitialInfo.ResumeLayout(false);
             this.gbInitialInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.gbToolbox.ResumeLayout(false);
+            this.gbArrows.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblHbg;
+        private System.Windows.Forms.Label lblWbg;
         private System.Windows.Forms.TextBox tbHeight;
         private System.Windows.Forms.TextBox tbWidth;
-        private System.Windows.Forms.GroupBox gbBG;
         private System.Windows.Forms.Button btnImageBG;
-        private System.Windows.Forms.GroupBox gbToolbox;
-        private System.Windows.Forms.GroupBox gbArrows;
-        private System.Windows.Forms.Button btnDown;
-        private System.Windows.Forms.Button btnPlace;
-        private System.Windows.Forms.Button btnRight;
-        private System.Windows.Forms.Button btnLeft;
-        private System.Windows.Forms.Button btnUp;
-        private System.Windows.Forms.GroupBox gbPawns;
         private System.Windows.Forms.Button btnImagePawn;
         private System.Windows.Forms.Button btnColorPawn;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox gbTiles;
+        private System.Windows.Forms.TextBox tbPieceW;
+        private System.Windows.Forms.TextBox tbPieceH;
+        private System.Windows.Forms.Label lblWp;
+        private System.Windows.Forms.Label lblHp;
         private System.Windows.Forms.Button btnImageTile;
         private System.Windows.Forms.Button btnColorTile;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbTileW;
+        private System.Windows.Forms.TextBox tbTileH;
+        private System.Windows.Forms.Label lblWt;
+        private System.Windows.Forms.Label lblHt;
         private System.Windows.Forms.CheckBox cbAllTiles;
         private System.Windows.Forms.GroupBox gbInitialInfo;
         private System.Windows.Forms.Button btnCreate;
@@ -671,8 +685,19 @@ namespace BoardGame
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnColorBG;
         private System.Windows.Forms.PictureBox pbBackground;
-        private System.Windows.Forms.Button btnDeleteTile;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cbShapes;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox gbToolbox;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox gbArrows;
+        private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Button btnPlace;
+        private System.Windows.Forms.Button btnRight;
+        private System.Windows.Forms.Button btnLeft;
+        private System.Windows.Forms.Button btnUp;
     }
 }
-
