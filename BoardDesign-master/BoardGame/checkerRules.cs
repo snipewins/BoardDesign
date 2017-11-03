@@ -11,8 +11,8 @@ namespace BoardGame
     {
         List<Square> masterList = new List<Square> { }; 
 
-        string blackCheckers;
-        string redCheckers;
+        //string blackCheckers;
+        //string redCheckers;
 
 
 
