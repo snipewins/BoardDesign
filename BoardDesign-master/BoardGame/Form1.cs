@@ -297,7 +297,8 @@ namespace BoardGame
             {
                 Controls.Remove(p);
                 p.Dispose();
-           
+           }
+         }
         
         private void btnDeleteTile_Click(object sender, EventArgs e)
         { //delete a tile
