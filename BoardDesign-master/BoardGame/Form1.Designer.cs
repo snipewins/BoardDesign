@@ -527,7 +527,7 @@ namespace BoardGame
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(353, 66);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Pieces";
+            this.tabPage3.Text = "Units";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // gbToolbox
