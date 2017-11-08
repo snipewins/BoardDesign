@@ -19,6 +19,7 @@ namespace BoardGame
         //height and width of tiles
         int hTile;
         int wTile;
+        bool enterPressed = false;
 
         //number of tiles
         int numTiles = 0;
@@ -570,6 +571,110 @@ namespace BoardGame
             ctrlClicked.Clear();
             highlight.Visible = false;
         }
+        
+        
+                private void formSize_TextChanged()//change size of form on toolbar
+        {
+            if (enterPressed == true)
+            {
+                if ((string.IsNullOrEmpty(tbWidth.Text) != true) || (Int32.TryParse(tbWidth.Text, out hForm) != false)) // || string.IsNullOrEmpty(tbWidth.Text))
+                {
+                    wForm = Convert.ToInt32(tbWidth.Text);
+                }
+                if ((string.IsNullOrEmpty(tbHeight.Text) != true) || (Int32.TryParse(tbHeight.Text, out wForm) != false)) // || string.IsNullOrEmpty(tbWidth.Text))
+                {
+                    hForm = Convert.ToInt32(tbHeight.Text);
+                }
+                this.Size = new Size(wForm, hForm);
+            }
+            enterPressed = false;
+            tbWidth.Clear();
+            tbHeight.Clear();
+        }
+
+        private void enter_KeyPress(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                enterPressed = true;
+                if (tbWidth.Focused == true || tbHeight.Focused == true)
+                {
+                    formSize_TextChanged();
+                }
+                else if (tbWidth.Focused == true || tbHeight.Focused == true)
+                    {
+                        tileSize_TextChanged();
+                    }
+
+                MessageBox.Show("HI");
+            }
+        }
+
+
+        private void tileSize_TextChanged()//changes size of tiles via the toolbar
+        {
+            if (enterPressed == true)
+            {
+                if ((string.IsNullOrEmpty(tbTileW.Text) != true) || (Int32.TryParse(tbTileW.Text, out hForm) != false)) // || string.IsNullOrEmpty(tbWidth.Text))
+                {
+                    int width = int.Parse(tbTileW.Text);
+
+                    if (cbAllTiles.Checked == true)
+                    {
+                        foreach (Panel p in Controls)
+                        {
+                            p.Size = new Size(hTile, width);
+                        }
+                    }
+                    else if (ctrlPressed == true)
+                    {
+                        foreach (Panel p in ctrlClicked)
+                        {
+                            p.Size = new Size(hTile, width);
+                        }
+                    }
+                    else if (tileClicked == true)
+                    {
+                        clickedTile.Size = new Size(hTile, width);
+                    }
+
+                }
+                if ((string.IsNullOrEmpty(tbTileH.Text) != true) || (Int32.TryParse(tbTileH.Text, out wForm) != false)) // || string.IsNullOrEmpty(tbWidth.Text))
+                {
+                    int height = int.Parse(tbTileH.Text);
+
+
+                    if (cbAllTiles.Checked == true)
+                    {
+                        foreach (Panel p in Controls)
+                        {
+                            p.Size = new Size(height, wTile);
+                        }
+                    }
+                    else if (ctrlPressed == true)
+                    {
+                        foreach (Panel p in ctrlClicked)
+                        {
+                            p.Size = new Size(height, wTile);
+                        }
+                    }
+                    else if (tileClicked == true)
+                    {
+                        clickedTile.Size = new Size(height, wTile);
+                    }
+                    else
+                    {
+                        hTile = height;
+                    }
+                }
+                enterPressed = false;
+                tbTileH.Clear();
+                tbTileW.Clear();
+            }
+        }
+        
+        
+        
     }
       //colin's code
     public class Panel1 : Panel //this class allows each panel to have a list of the connected panels
