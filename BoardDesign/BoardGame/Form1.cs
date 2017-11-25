@@ -206,6 +206,19 @@ namespace BoardGame
                         }
                     }
                 }
+                else if (btn == btnColorPawn )
+                {
+                    foreach (Panel1 p in allClicked)
+                    {
+                        foreach(Unit u in p.unitsOnThisPanel)
+                        {
+                            u.setColor(colorDialogBox.Color);
+                            u.BackgroundImage = null;
+                            imageAdded = false;
+                        }
+
+                    }
+                }
             }
         }
 
@@ -224,6 +237,7 @@ namespace BoardGame
                 pbBackground.BackgroundImage = Image.FromFile(imagePath);
                 pbBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             }
+            
 
             else if (btn == btnImageTile)   //if the tile image button has been clicked
             {
@@ -245,6 +259,21 @@ namespace BoardGame
                     }
                 }
             }
+            else if (btn == btnImagePawn)
+            {
+                foreach (Panel1 p in allClicked)
+                {
+                    foreach(Unit u in p.unitsOnThisPanel)
+                    {
+                        imageAdded = true;
+                        u.BackgroundImage = Image.FromFile(imagePath); //get tile from panel selected
+                        u.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+                    }
+                    
+                }
+            }
+
+
         }
 
         public string GetImage()
@@ -315,8 +344,8 @@ namespace BoardGame
             }
             cbShapes.SelectedIndex = -1;//resets the dropdown to empty instead of 'circle' or 'triangle'
         }
-
-        public void drawCircle(Panel1 p)
+        #region shapes
+        public void drawCircle(Panel p)
         {
             System.Drawing.Drawing2D.GraphicsPath buttonPath = new System.Drawing.Drawing2D.GraphicsPath();
 
@@ -332,7 +361,7 @@ namespace BoardGame
 
         }
 
-        public void drawTriangle(Panel1 p)
+        public void drawTriangle(Panel p)
         {
             // Triangle button
             System.Drawing.Drawing2D.GraphicsPath buttonPath = new System.Drawing.Drawing2D.GraphicsPath();
@@ -349,6 +378,7 @@ namespace BoardGame
             p.Region = new System.Drawing.Region(buttonPath);
             p.BackColor = backgroundTile;
         }
+        #endregion shapes
 
         private void formSize_Enter(object sender, KeyPressEventArgs e)//change size of form on toolbar
         {
@@ -423,5 +453,99 @@ namespace BoardGame
                 tbTileW.Clear();
             }
         }
+
+        #region connectionTab 
+        private void connection_Click(object sender, EventArgs e)
+        {
+            if (allClicked.Any())//checks if any tiles have been selected
+            {
+                if (allClicked.Count() > 1)//checks if multiple tiles selected
+                {
+
+                    Panel1 firstPanel = allClicked.First();
+                    String a = "";//for use in verifying completion
+                    foreach (Panel1 nextpanel in allClicked)
+                    {
+                        if (nextpanel == firstPanel)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            if (firstPanel.connectedList.Any() == false)
+                            {
+                                firstPanel.connectedList.AddFirst(nextpanel);
+                            }
+                            else
+                            {
+                                firstPanel.connectedList.AddLast(nextpanel);
+                            }
+                            
+                            a += nextpanel.Name + ", ";
+                        }
+                    }
+                    //message to verify completion
+                    MessageBox.Show("You have added the panels: " + a + "\n to the list of connected panels in " + firstPanel.Name);
+                }
+                else
+                {
+                    //error message
+                    MessageBox.Show("you must ctrl click multiple squares to add connections. The blue highlighted tiles will be added to the list of connected tiles in the red tile ");
+                }
+
+            }
+            else
+            {
+                //error message
+                MessageBox.Show("You must ctrl click multiple tiles to be added.");
+            }
+        }
+
+        private void showConnections_Click(object sender, EventArgs e)
+        {
+            if (allClicked.Any())
+            {
+                if (allClicked.Count == 1)
+                {
+                    foreach(Panel1 hilightedPanel in allClicked.First().connectedList)
+                    {
+                        Color green = Color.Green;
+                        Panel1 greenHighlight = highlight(hilightedPanel, green);//highlights all of the tiles that are connected green
+                        greenHighlight.BringToFront();//*******may cause issues with showing the unit******
+                        hilightedPanel.BringToFront();//*******may cause issues with showing the unit******
+                        allHighlight.Add(greenHighlight);//adds the highlight to the list so that the highlight can be deleted when you click away
+                    }
+                }
+                else
+                {
+                    foreach (Panel1 hilightedPanel in allClicked.First().connectedList)
+                    {
+                        Color green = Color.Green;
+                        Panel1 greenHighlight = highlight(hilightedPanel, green);//highlights all of the tiles that are connected green
+                        greenHighlight.BringToFront();//*******may cause issues with showing the unit******
+                        hilightedPanel.BringToFront();//*******may cause issues with showing the unit******
+                        allHighlight.Add(greenHighlight);//adds the highlight to the list so that the highlight can be deleted when you click away
+                    }
+                    MessageBox.Show("this button only shows connections for the first selected tile, highlighted in green");
+                }
+            }
+            else
+            {
+                //error message
+                MessageBox.Show("Select a tile to show its connections highlighted in green.");
+            }
+        }
+
+        #endregion connectionTab
+
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
     }
 }

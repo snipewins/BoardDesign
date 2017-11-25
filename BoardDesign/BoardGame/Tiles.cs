@@ -38,7 +38,8 @@ namespace BoardGame
         bool placeClicked = false;
         List<Panel1> allClicked = new List<Panel1>();
         List<Panel1> allHighlight = new List<Panel1>();
-
+        //List<Unit> allSelectedUnits = new List<Unit>();
+        Unit[] allSelectedUnits = new Unit[2];//used in the Panel_Click method
 
 
        // Panel highlight = new Panel();
@@ -133,6 +134,9 @@ namespace BoardGame
             newTile.Size = new Size(wTile, hTile); //sets size of tile             
             newTile.Location = new Point(position.X, position.Y); //sets position of tile
             newTile.Name = "tile" + numTiles;              //changes name of tile to "tile#"
+
+            //MessageBox.Show(newTile.Name);
+
             newTile.MouseClick += Panel_Click;             //creates event for tile / addes mouseClick event
 
             intersectsWith(newTile); //checks if the new tile intersects with all other created tiles
@@ -160,45 +164,97 @@ namespace BoardGame
             }
         }
 
-        private Panel1 highlight(Panel1 clickedTile)//creates a new panel for highlight
+        public Panel1 highlight(Panel1 clickedTile)//creates a new panel for highlight when clicking tiles
         {
             Panel1 highlight = new Panel1();
-            highlight.BackColor = Color.Red; //set color of highlight tile
+            if (allClicked.Any())
+            {
+                highlight.BackColor = Color.Blue; //set color of highlight tile
+            }
+            else{
+                highlight.BackColor = Color.Red; //set color of highlight tile
+            }
             highlight.Size = new Size(clickedTile.Width + 2, clickedTile.Height + 2);//sets size of highlight tile
             highlight.Location = new Point(clickedTile.Location.X - 1, clickedTile.Location.Y - 1);//set location of highlight tile
             Controls.Add(highlight);//add highlight tile to form
 
             return highlight;
         }
+        public Panel1 highlight(Panel panelToHighlight, Color highlightColor)//more generic constructor of the highlight method
+        {
+            Panel1 highlight = new Panel1();
+            highlight.BackColor = highlightColor;
+            highlight.Size = new Size(panelToHighlight.Width + 2, panelToHighlight.Height + 2);//sets size of highlight tile
+            highlight.Location = new Point(panelToHighlight.Location.X - 1, panelToHighlight.Location.Y - 1);//set location of highlight tile
+            Controls.Add(highlight);//add highlight tile to form
+            return highlight;
+        }
+
+
 
         private void Panel_Click(object sender, EventArgs e)
         {
-            Panel1 clickedTile = (Panel1)sender;
+           
+            Panel1 clickedTile = new Panel1();
             Panel1 highlightTile = new Panel1();
+            clickedTile = (Panel1)sender;
 
-            if (ModifierKeys.HasFlag(Keys.Control))//if ctrl is pressed
-            {                //create and add new highlights to list
-                allClicked.Add(clickedTile);//add clicked to list of clicked tiles
 
-                highlightTile = highlight(clickedTile);
-                allHighlight.Add(highlightTile);//add highlight to list of highlighted tiles   
-                //return;
+            MouseEventArgs me = (MouseEventArgs)e;//used to differentiate left vs right click
+            if (me.Button == MouseButtons.Right)//if right click
+            {
+                //MessageBox.Show("register a right click");
+                if (allSelectedUnits[0] != null)//and unit was previously selected
+                {
+                    //move the unit
+                    allSelectedUnits[0].changeLocation(clickedTile);
+                    
+                }else
+                {
+                    MessageBox.Show("error in adding the selected unit");
+                }
+
             }
-            else//if only 1 tile has been clicked
-            {       //reset clicked lists
-                deleteList(allHighlight);//deletes all panels in list
-                clearList(allHighlight);//resets the highlist list
-                clearList(allClicked);//resets all clicked list
+            else//if left click
+            {
 
-                highlightTile = highlight(clickedTile);//create a highlight tile
-                //allHighlight.Clear();
-                allHighlight.Insert(0, highlightTile);//replace/add highlight tile as #1 in list
-                allClicked.Insert(0, clickedTile);//replace clicked tile list #1 with new clicked 
+                if (ModifierKeys.HasFlag(Keys.Control))//if ctrl is pressed
+                {                //create and add new highlights to list
+                    allClicked.Add(clickedTile);//add clicked to list of clicked tiles
 
-                position.X = clickedTile.Location.X; //allows branching from other tiles 
-                position.Y = clickedTile.Location.Y; //instead of one snake
+                    highlightTile = highlight(clickedTile);
+                    allHighlight.Add(highlightTile);//add highlight to list of highlighted tiles   
+                                                    //return;
+                }
+                else//if only 1 tile has been clicked
+                {       //reset clicked lists
+                    deleteList(allHighlight);//deletes all panels in list
+                    clearList(allHighlight);//resets the highlist list
+                    clearList(allClicked);//resets all clicked list
+
+                    highlightTile = highlight(clickedTile);//create a highlight tile
+                                                           //allHighlight.Clear();
+                    allHighlight.Insert(0, highlightTile);//replace/add highlight tile as #1 in list
+                    allClicked.Insert(0, clickedTile);//replace clicked tile list #1 with new clicked 
+
+                    position.X = clickedTile.Location.X; //allows branching from other tiles 
+                    position.Y = clickedTile.Location.Y; //instead of one snake
+
+                    if (clickedTile.unitsOnThisPanel.Any())//if newly selected tile has a unit
+                    {
+                        //MessageBox.Show("panel has a unit");//for use in debugging
+                        
+                        if (clickedTile.unitsOnThisPanel.Any())
+                        {
+                            //simultaneiously clears the array of the old selected unit and selects this one
+                            allSelectedUnits[0] = clickedTile.unitsOnThisPanel.First();
+                        }  
+                    }
+
+                }
+                pbBackground.SendToBack();
             }
-            pbBackground.SendToBack();
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

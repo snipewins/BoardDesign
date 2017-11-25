@@ -73,6 +73,10 @@ namespace BoardGame
             this.tbTileH = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.addUnit = new System.Windows.Forms.Button();
+            this.connectionsTab = new System.Windows.Forms.TabPage();
+            this.showConnections = new System.Windows.Forms.Button();
+            this.connection = new System.Windows.Forms.Button();
             this.gbToolbox = new System.Windows.Forms.GroupBox();
             this.gbArrows = new System.Windows.Forms.GroupBox();
             this.btnDown = new System.Windows.Forms.Button();
@@ -80,14 +84,19 @@ namespace BoardGame
             this.btnRight = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
+            this.SaveLoadTab = new System.Windows.Forms.TabPage();
+            this.Save = new System.Windows.Forms.Button();
+            this.Load = new System.Windows.Forms.Button();
             this.gbInitialInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.connectionsTab.SuspendLayout();
             this.gbToolbox.SuspendLayout();
             this.gbArrows.SuspendLayout();
+            this.SaveLoadTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblHbg
@@ -121,6 +130,7 @@ namespace BoardGame
             this.tbWidth.Location = new System.Drawing.Point(51, 39);
             this.tbWidth.Name = "tbWidth";
             this.tbWidth.Size = new System.Drawing.Size(26, 20);
+            this.tbWidth.TabIndex = 7;
             this.tbWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.formSize_Enter);
             // 
             // btnColorBG
@@ -451,6 +461,8 @@ namespace BoardGame
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.connectionsTab);
+            this.tabControl1.Controls.Add(this.SaveLoadTab);
             this.tabControl1.Location = new System.Drawing.Point(2, 8);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -517,9 +529,11 @@ namespace BoardGame
             this.label17.Size = new System.Drawing.Size(38, 13);
             this.label17.TabIndex = 8;
             this.label17.Text = "Shape";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.addUnit);
             this.tabPage3.Controls.Add(this.btnImagePawn);
             this.tabPage3.Controls.Add(this.tbPieceH);
             this.tabPage3.Controls.Add(this.btnColorPawn);
@@ -532,6 +546,48 @@ namespace BoardGame
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Units";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // addUnit
+            // 
+            this.addUnit.Location = new System.Drawing.Point(148, 10);
+            this.addUnit.Name = "addUnit";
+            this.addUnit.Size = new System.Drawing.Size(75, 23);
+            this.addUnit.TabIndex = 6;
+            this.addUnit.Text = "Add Unit";
+            this.addUnit.UseVisualStyleBackColor = true;
+            this.addUnit.Click += new System.EventHandler(this.addUnit_Click);
+            // 
+            // connectionsTab
+            // 
+            this.connectionsTab.Controls.Add(this.showConnections);
+            this.connectionsTab.Controls.Add(this.connection);
+            this.connectionsTab.Location = new System.Drawing.Point(4, 22);
+            this.connectionsTab.Name = "connectionsTab";
+            this.connectionsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.connectionsTab.Size = new System.Drawing.Size(353, 66);
+            this.connectionsTab.TabIndex = 3;
+            this.connectionsTab.Text = "Connections";
+            this.connectionsTab.UseVisualStyleBackColor = true;
+            // 
+            // showConnections
+            // 
+            this.showConnections.Location = new System.Drawing.Point(120, 7);
+            this.showConnections.Name = "showConnections";
+            this.showConnections.Size = new System.Drawing.Size(116, 23);
+            this.showConnections.TabIndex = 24;
+            this.showConnections.Text = "Show Connections";
+            this.showConnections.UseVisualStyleBackColor = true;
+            this.showConnections.Click += new System.EventHandler(this.showConnections_Click);
+            // 
+            // connection
+            // 
+            this.connection.Location = new System.Drawing.Point(6, 6);
+            this.connection.Name = "connection";
+            this.connection.Size = new System.Drawing.Size(107, 23);
+            this.connection.TabIndex = 23;
+            this.connection.Text = "Add Connection";
+            this.connection.UseVisualStyleBackColor = true;
+            this.connection.Click += new System.EventHandler(this.connection_Click);
             // 
             // gbToolbox
             // 
@@ -617,6 +673,37 @@ namespace BoardGame
             this.btnUp.UseVisualStyleBackColor = false;
             this.btnUp.Click += new System.EventHandler(this.btnArrows_Click);
             // 
+            // SaveLoadTab
+            // 
+            this.SaveLoadTab.Controls.Add(this.Load);
+            this.SaveLoadTab.Controls.Add(this.Save);
+            this.SaveLoadTab.Location = new System.Drawing.Point(4, 22);
+            this.SaveLoadTab.Name = "SaveLoadTab";
+            this.SaveLoadTab.Padding = new System.Windows.Forms.Padding(3);
+            this.SaveLoadTab.Size = new System.Drawing.Size(353, 66);
+            this.SaveLoadTab.TabIndex = 4;
+            this.SaveLoadTab.Text = "Save / Load";
+            this.SaveLoadTab.UseVisualStyleBackColor = true;
+            // 
+            // Save
+            // 
+            this.Save.Location = new System.Drawing.Point(19, 13);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(75, 23);
+            this.Save.TabIndex = 0;
+            this.Save.Text = "Save";
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // Load
+            // 
+            this.Load.Location = new System.Drawing.Point(101, 13);
+            this.Load.Name = "Load";
+            this.Load.Size = new System.Drawing.Size(75, 23);
+            this.Load.TabIndex = 1;
+            this.Load.Text = "Load";
+            this.Load.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.White;
@@ -638,8 +725,10 @@ namespace BoardGame
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.connectionsTab.ResumeLayout(false);
             this.gbToolbox.ResumeLayout(false);
             this.gbArrows.ResumeLayout(false);
+            this.SaveLoadTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -697,5 +786,12 @@ namespace BoardGame
         private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.TextBox tbTileH;
         private System.Windows.Forms.TextBox tbTileW;
+        private System.Windows.Forms.Button connection;
+        private System.Windows.Forms.TabPage connectionsTab;
+        private System.Windows.Forms.Button showConnections;
+        private System.Windows.Forms.Button addUnit;
+        private System.Windows.Forms.TabPage SaveLoadTab;
+        private System.Windows.Forms.Button Load;
+        private System.Windows.Forms.Button Save;
     }
 }
