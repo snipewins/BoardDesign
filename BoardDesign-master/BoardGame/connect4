@@ -1,0 +1,40 @@
+        public void connect4()
+        {
+            var line = false;
+            var straightfour = false;
+            var units = false;
+            var full = false;
+
+
+
+        }
+        public void units() {
+            if collum(units == true){
+                check if full
+                    if (full == true) {
+                        displayerrormessage
+                    }
+            }
+            then{
+                place.unit.bottomopen();
+            }
+            
+        }
+        public void line() {
+            check.neighbors();
+            checked.colorofunits();
+            if(neighbors==true, colorofunits == ally){
+                line = true;
+
+            }
+            if (line == true) {
+                check.line.length();
+                if (line.length >= 4)
+                {
+                    Display.youwon;
+                }
+                else {
+                    nextturn();
+                }
+            }
+        }
